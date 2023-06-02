@@ -1,0 +1,44 @@
+:root{
+    --textcolor: #fffffe;
+}
+
+.page-title{
+    font-size: 30px;
+    font-weight: bold;
+    color: #000;
+    margin: 2em auto;
+    text-align: center;
+    color: var(--textcolor);
+}
+
+.link{
+    color: var(--textcolor);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 0.8em;
+    margin: 1em auto;
+    padding: 2em 0;
+}
+
+.link:hover{
+    color: var(--textcolor);
+    text-decoration: underline;
+}
+
+.section-title{
+    font-size: 20px;
+    font-weight: bold;
+    color: #000;
+    margin: 2em auto;
+    text-align: center;
+    color: var(--textcolor);
+}
+
+.hrnet-form-container{
+    background-color: #abd1c6;
+    padding: 20px;
+    border-radius: 10px;
+    color: #fff;
+    width: 40%;
+    margin: 0 auto;
+}

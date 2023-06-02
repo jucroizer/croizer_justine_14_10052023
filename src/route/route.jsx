@@ -8,7 +8,7 @@ function RouteManager(){
         <Router>
           <Routes>
             <Route path="/" element={<Home />}></Route>
-            <Route path="/create" element={<CreateEmployees />}></Route>
+            <Route path="/employee" element={<CreateEmployees />}></Route>
             <Route path="*" element={<Error />}></Route>
           </Routes>
         </Router>

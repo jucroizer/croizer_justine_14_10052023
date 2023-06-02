@@ -1,15 +1,13 @@
-html, body {
-    background-color: #004643;
-}
-
-.hrnet-form-container{
+/* .hrnet-form-container{
     background-color: #abd1c6;
-    padding: 20px;
+    padding: 40px;
     border-radius: 10px;
     margin: 20px;
     color: #fff;
-}
-
-/* .hrnet-form-button{
-    background-color: #f9bc60;
+    width: 40%;
+    opacity: 1;
 } */
+
+.hrnet-form-input{
+    padding: 0.3em 0;
+}

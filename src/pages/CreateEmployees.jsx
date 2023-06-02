@@ -1,12 +1,27 @@
-function CreateEmployees(){
-    return (
-        <div>
-            <h1>Create Employees</h1>
+// import {DataTable} from 'datable-react';
+// import mockData from "../MockData";
+// import { useParams } from "react-router-dom";
+// import {Header} from 'datable-react';
+// import {Table} from 'datable-react';
+// import {Footer} from 'datable-react';
 
-            
-        </div>
-    );
+// import { Store } from "../store/store";
+
+function CreateEmployees() {
+
+  return (
+    <div
+    style={{color: "white"}}
+    >
+      <h1>Current Employees</h1>
+
+      <section>
+        {/* <DataTable labels={labels} data={userInfo}/> */}
+        {/* <Header labels={labels} data={userInfo} /> */}
+        {/* <Table labels={labels} data={userInfo} /> */}
+      </section>
+    </div>
+  );
 }
 
 export default CreateEmployees;
-
