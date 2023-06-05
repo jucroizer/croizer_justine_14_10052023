@@ -23,12 +23,6 @@ function Home() {
       <Link to="/employee" className="link">
         View Current Employees
       </Link>
-
-      {/* <img
-        src={background}
-        alt=""
-        style={{ position: "absolute", top: "20em", left: "0em", zIndex: "-1" }}
-      /> */}
     </div>
   );
 }

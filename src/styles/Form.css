@@ -11,3 +11,33 @@
 .hrnet-form-input{
     padding: 0.3em 0;
 }
+
+.hrnet-form__input{
+    border: none;
+    border-radius: 4px;
+    width: 96%;
+    padding: 0.8em 0.5em;
+    margin-bottom: 1em;
+}
+
+.submit-button{
+    background-color: #e16162;
+    color: #fff;
+    border: none;
+    border-radius: 4px;
+    padding: 0.5em 0.5em;
+    margin-bottom: 1em;
+    width: 50%;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    margin-top: 1em;
+}
+
+.dropdown{
+    border: none;
+    border-radius: 4px;
+    width: 100%;
+    padding: 0.8em 0.5em;
+    margin-bottom: 1em;
+}

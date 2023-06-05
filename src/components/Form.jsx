@@ -1,14 +1,17 @@
 import React, { useState } from "react";
-import { DatePickerInput } from "@mantine/dates";
-// import { NumberInput } from "@mantine/core";
+import { DateInput } from "@mantine/dates";
+import { NumberInput } from "@mantine/core";
 import Dropdown from "./Dropdown";
+// import Modale from "../components/Modal.jsx";
+
+import { useDisclosure } from "@mantine/hooks";
+import { Modal } from "@mantine/core";
 
 import { setEmployee } from "../store/storeSlice";
 import { useDispatch } from "react-redux";
 
-
 import "../styles/Form.css";
-
+import { Link } from "react-router-dom";
 
 function Form() {
   // const [value, setValue] = useState(0);
@@ -18,13 +21,12 @@ function Form() {
   const [birthDate, setBirthDate] = useState("");
   const [streetAddress, setStreetAddress] = useState("");
   const [city, setCity] = useState("");
-  const [state, setState] = useState("AL");
-  // const [zipCode, setZipCode] = useState();
+  const [state, setState] = useState("Alabama");
+  const [zipCode, setZipCode] = useState();
   const [department, setDepartment] = useState("Sales");
-  // const [formValid, setFormValid] = useState(false);
+  const [formValid, setFormValid] = useState(false);
 
-  console.log(new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(birthDate))
-
+  const [opened, { open, close }] = useDisclosure(false);
 
   const departments = [
     { id: 1, name: "Sales" },
@@ -100,8 +102,17 @@ function Form() {
     e.preventDefault();
     console.log("submitted");
 
-    const newBirthDate = new Intl.DateTimeFormat('fr-FR', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(birthDate);
-    const newStartDate = new Intl.DateTimeFormat('fr-FR', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(startDate);
+    const newBirthDate = new Intl.DateTimeFormat("fr-FR", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(birthDate);
+
+    const newStartDate = new Intl.DateTimeFormat("fr-FR", {
+      year: "numeric",
+      month: "2-digit",
+      day: "2-digit",
+    }).format(startDate);
 
     const employee = {
       firstName: firstName,
@@ -111,97 +122,156 @@ function Form() {
       streetAddress: streetAddress,
       city: city,
       state: state,
-      // zipCode: zipCode,
+      zipCode: zipCode,
       department: department,
     };
 
-    //set the employee to local storage
-    localStorage.setItem("employee", JSON.stringify(employee));
+    // do a validation check here
+    if (
+      firstName === "" ||
+      lastName === "" ||
+      birthDate === "" ||
+      startDate === "" ||
+      streetAddress === "" ||
+      city === "" ||
+      state === "" ||
+      zipCode === "" ||
+      department === ""
+    ) {
+      alert("Please fill in all fields");
+      setFormValid(false);
+      return;
 
-    //set the employee to redux store
-    dispatch(setEmployee({
-      firstName: firstName,
-      lastName: lastName,
-      birthDate: newBirthDate,
-      startDate: newStartDate,
-      streetAddress: streetAddress,
-      city: city,
-      state: state,
-      // zipCode: zipCode,
-      department: department,
-    }));
+    } else {
 
+      setFormValid(true);
+      //open the modal
+      open();
+
+      //set the employee to local storage
+      localStorage.setItem("employee", JSON.stringify(employee));
+
+      //set the employee to redux store
+      dispatch(
+        setEmployee({
+          firstName: firstName,
+          lastName: lastName,
+          birthDate: newBirthDate,
+          startDate: newStartDate,
+          streetAddress: streetAddress,
+          city: city,
+          state: state,
+          zipCode: zipCode,
+          department: department,
+        })
+      );
+    }
   };
 
   return (
-    <form className="hrnet-form" onSubmit={onSubmit}>
-      <label htmlFor="fname">First Name</label>
-      <input
-        type="text"
-        id="fname"
-        name="fname"
-        onChange={(e) => setFirstName(e.target.value)}
-      />
+    <>
+      <form className="hrnet-form" onSubmit={onSubmit}>
+        <input
+          className="hrnet-form__input"
+          type="text"
+          id="fname"
+          name="fname"
+          placeholder="First Name"
+          onChange={(e) => setFirstName(e.target.value)}
+          aria-label="First Name"
+        />
 
-      <label htmlFor="lname">Last Name</label>
-      <input
-        type="text"
-        id="lname"
-        name="lname"
-        onChange={(e) => setLastName(e.target.value)}
-      />
+        <input
+          className="hrnet-form__input"
+          type="text"
+          id="lname"
+          name="lname"
+          placeholder="Last Name"
+          onChange={(e) => setLastName(e.target.value)}
+          aria-label="Last Name"
+        />
 
-      <DatePickerInput
-        valueFormat="DD/MM/YYYY" // format for input
-        label="Date of Birth"
-        placeholder="Date of Birth"
-        // value={birthDate}
-        onChange={setBirthDate}
-      />
+        <DateInput
+          valueFormat="DD/MM/YYYY" // format for input
+          placeholder="Date of Birth"
+          onChange={setBirthDate}
+          style={{ marginBottom: "20px" }}
+          maw={400}
+          mx="auto"
+          aria-label="Date of Birth"
+        />
 
-      <DatePickerInput
-        valueFormat="DD/MM/YYYY" // format for input
-        label="Start Date"
-        placeholder="Start Date"
-        // value={startDate}
-        onChange={setStartDate}
-      />
+        <DateInput
+          valueFormat="DD/MM/YYYY" // format for input
+          placeholder="Start Date"
+          onChange={setStartDate}
+          style={{ marginBottom: "20px" }}
+          maw={400}
+          mx="auto"
+          aria-label="Start Date"
+        />
 
-      <label htmlFor="street">Street</label>
-      <input
-        type="text"
-        id="street"
-        name="street"
-        onChange={(e) => setStreetAddress( e.target.value )}
-      />
+        <input
+          className="hrnet-form__input"
+          type="text"
+          id="street"
+          name="street"
+          placeholder="Street"
+          onChange={(e) => setStreetAddress(e.target.value)}
+          aria-label="Street"
+        />
 
-      <label htmlFor="city">City</label>
-      <input
-        type="text"
-        id="city"
-        name="city"
-        onChange={(e) => setCity( e.target.value )}
-      />
+        <input
+          className="hrnet-form__input"
+          type="text"
+          id="city"
+          name="city"
+          placeholder="City"
+          onChange={(e) => setCity(e.target.value)}
+          aria-label="City"
+        />
 
-      <Dropdown
-        result={(value) => {
-          setState(value);
-        }}
-        options={states}
-      />
+        <NumberInput
+          defaultValue={0}
+          placeholder="Zip Code"
+          onChange={setZipCode}
+          style={{ marginBottom: "20px" }}
+          aria-label="Zip Code"
+        />
 
-      {/* <NumberInput value={0} onChange={setZipCode} /> */}
+        <Dropdown
+          className="hrnet-form__input"
+          result={(value) => {
+            setState(value);
+          }}
+          options={states}
+          aria-label="State"
+        />
 
-      <Dropdown 
-      result={(value) => {
-        setDepartment(value);
-      }}
-      options={departments} />
+        <Dropdown
+          className="hrnet-form__input"
+          result={(value) => {
+            setDepartment(value);
+          }}
+          options={departments}
+          aria-label="Department"
+        />
 
-      <button type="submit" className="submit-button">
-        Save
-      </button>
-    </form>
+        <button type="submit" className="submit-button" aria-label="Submit">
+          Save
+        </button>
+      </form>
+
+      <Modal
+        opened={opened}
+        onClose={close}
+        title="Employee Created !"
+        transitionProps={{ transition: "fade", duration: 200 }}
+      > 
+        If you want to see the employee details, please go to the Employee List page.
+        <Link to="/employee"/>
+      </Modal>
+    </>
   );
 }
 
