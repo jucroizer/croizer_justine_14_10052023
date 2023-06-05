@@ -3,7 +3,7 @@ import { DatePickerInput } from "@mantine/dates";
 // import { NumberInput } from "@mantine/core";
 import Dropdown from "./Dropdown";
 
-import { setEmployee, newEmployee } from "../store/storeSlice";
+import { setEmployee } from "../store/storeSlice";
 import { useDispatch } from "react-redux";
 
 
@@ -22,6 +22,8 @@ function Form() {
   // const [zipCode, setZipCode] = useState();
   const [department, setDepartment] = useState("Sales");
   // const [formValid, setFormValid] = useState(false);
+
+  console.log(new Intl.DateTimeFormat('en-US', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(birthDate))
 
 
   const departments = [
@@ -94,19 +96,18 @@ function Form() {
 
   const dispatch = useDispatch();
 
-  // const handleChange = (e) => {
-  //   updateState(e);
-  // };
-
   const onSubmit = (e) => {
     e.preventDefault();
     console.log("submitted");
 
+    const newBirthDate = new Intl.DateTimeFormat('fr-FR', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(birthDate);
+    const newStartDate = new Intl.DateTimeFormat('fr-FR', {year: 'numeric', month: '2-digit',day: '2-digit'}).format(startDate);
+
     const employee = {
       firstName: firstName,
       lastName: lastName,
-      birthDate: birthDate,
-      startDate: startDate,
+      birthDate: newBirthDate,
+      startDate: newStartDate,
       streetAddress: streetAddress,
       city: city,
       state: state,
@@ -114,44 +115,22 @@ function Form() {
       department: department,
     };
 
-    console.log(employee);
-
-    //set in localStorage results of the form
-    // localStorage.setItem("firstName", JSON.stringify(firstName));
-    // localStorage.setItem("lastName", JSON.stringify(lastName));
-    // localStorage.setItem("birthDate", JSON.stringify(birthDate));
-    // localStorage.setItem("startDate", JSON.stringify(startDate));
-    // localStorage.setItem("streetAdress", JSON.stringify(streetAddress));
-    // localStorage.setItem("city", JSON.stringify(city));
-    // localStorage.setItem("state", JSON.stringify(state));
-    // localStorage.setItem("zipCode", JSON.stringify(zipCode));
-    // localStorage.setItem("department", JSON.stringify(department));
-
+    //set the employee to local storage
     localStorage.setItem("employee", JSON.stringify(employee));
 
-    //dispatch the action to add the employee to the store using the reduxStore function
+    //set the employee to redux store
+    dispatch(setEmployee({
+      firstName: firstName,
+      lastName: lastName,
+      birthDate: newBirthDate,
+      startDate: newStartDate,
+      streetAddress: streetAddress,
+      city: city,
+      state: state,
+      // zipCode: zipCode,
+      department: department,
+    }));
 
-
-    // dispatch(
-    //   reduxStore(
-    //     employee.firstName,
-    //     employee.lastName,
-    //     employee.birthDate,
-    //     employee.startDate,
-    //     employee.streetAddress,
-    //     employee.city,
-    //     employee.state,
-    //     // employee.zipCode,
-    //     employee.department
-    //   )
-    // );
-
-
-
-    // dispatch(createSlice(employee));
-
-    // dispatch employee to the store
-    dispatch(setEmployee(employee));
   };
 
   return (

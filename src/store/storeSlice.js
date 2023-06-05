@@ -1,20 +1,23 @@
-import { createSlice } from '@reduxjs/toolkit';
+import { createSlice } from "@reduxjs/toolkit";
 
 export const employeeSlice = createSlice({
-    name: "employee",
-    initialState: {
-       employee: []
+  name: "employee",
+
+  initialState: {
+    employee: [],
+  },
+
+  reducers: {
+    setEmployee: (state, action) => {
+      state.employee = action.payload;
     },
-    reducers: {
-        setEmployee: (state, action) => {
-            return { ...state, employee: [...action.payload]};
-        },
-        newEmployee: (state, action) => {
-            return { ...state, employee: [...state.employee, action.payload]};
-        }
-    }
+  },
 });
 
-export const { setEmployee, newEmployee } = employeeSlice.actions;
+// export des actions
+export const { setEmployee } = employeeSlice.actions;
+
+export const selectEmployee = (state) => state.employee.employee;
 
 export default employeeSlice.reducer;
+
