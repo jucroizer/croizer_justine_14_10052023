@@ -1,7 +1,8 @@
 import React, { useState } from "react";
 import { DateInput } from "@mantine/dates";
 import { NumberInput } from "@mantine/core";
-import Dropdown from "./Dropdown";
+// import Dropdown from "./Dropdown";
+import Dropdown  from "dropdown-menu-input-react-1"
 // import Modale from "../components/Modal.jsx";
 
 import { useDisclosure } from "@mantine/hooks";
@@ -14,7 +15,7 @@ import "../styles/Form.css";
 import { Link } from "react-router-dom";
 
 function Form() {
-  // const [value, setValue] = useState(0);
+
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -96,11 +97,13 @@ function Form() {
     { id: 50, name: "Wyoming" },
   ];
 
+  console.log("state", state);
   const dispatch = useDispatch();
 
   const onSubmit = (e) => {
     e.preventDefault();
     console.log("submitted");
+    console.log('states', states)
 
     const newBirthDate = new Intl.DateTimeFormat("fr-FR", {
       year: "numeric",
@@ -240,7 +243,7 @@ function Form() {
         />
 
         <Dropdown
-          className="hrnet-form__input"
+          // className="hrnet-form__input"
           result={(value) => {
             setState(value);
           }}
@@ -249,7 +252,7 @@ function Form() {
         />
 
         <Dropdown
-          className="hrnet-form__input"
+          // className="hrnet-form__input"
           result={(value) => {
             setDepartment(value);
           }}
