@@ -6,7 +6,7 @@
     font-size: 30px;
     font-weight: bold;
     color: #000;
-    margin: 2em auto;
+    margin: 1em auto 1em auto;
     text-align: center;
     color: var(--textcolor);
 }
@@ -17,7 +17,6 @@
     font-weight: bold;
     font-size: 0.8em;
     margin: 1em auto;
-    padding: 2em 0;
 }
 
 .link:hover{
@@ -29,7 +28,7 @@
     font-size: 20px;
     font-weight: bold;
     color: #000;
-    margin: 2em auto;
+    margin: 1em auto;
     text-align: center;
     color: var(--textcolor);
 }
@@ -39,6 +38,6 @@
     padding: 20px;
     border-radius: 10px;
     color: #fff;
-    width: 40%;
-    margin: 0 auto;
+    width: 25%;
+    margin: 2em auto 1em auto;
 }

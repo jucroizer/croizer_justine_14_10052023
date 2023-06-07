@@ -198,7 +198,7 @@ function Form() {
           valueFormat="DD/MM/YYYY" // format for input
           placeholder="Date of Birth"
           onChange={setBirthDate}
-          style={{ marginBottom: "20px" }}
+          style={{ marginBottom: "15px", width:'95%'}}
           maw={400}
           mx="auto"
           aria-label="Date of Birth"
@@ -208,7 +208,7 @@ function Form() {
           valueFormat="DD/MM/YYYY" // format for input
           placeholder="Start Date"
           onChange={setStartDate}
-          style={{ marginBottom: "20px" }}
+          style={{ marginBottom: "15px", width:'95%'}}
           maw={400}
           mx="auto"
           aria-label="Start Date"
@@ -238,7 +238,7 @@ function Form() {
           defaultValue={0}
           placeholder="Zip Code"
           onChange={setZipCode}
-          style={{ marginBottom: "20px" }}
+          style={{ marginBottom: "15px", width:'95%', marginLeft:'0.5em'}}
           aria-label="Zip Code"
         />
 
