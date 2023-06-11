@@ -1,21 +1,15 @@
 import React, { useState } from "react";
 import { DateInput } from "@mantine/dates";
 import { NumberInput } from "@mantine/core";
-// import Dropdown from "./Dropdown";
-import Dropdown  from "dropdown-menu-input-react-1"
-// import Modale from "../components/Modal.jsx";
-
+import Dropdown from "dropdown-menu-input-react-1";
 import { useDisclosure } from "@mantine/hooks";
 import { Modal } from "@mantine/core";
-
 import { setEmployee } from "../store/storeSlice";
 import { useDispatch } from "react-redux";
-
 import "../styles/Form.css";
 import { Link } from "react-router-dom";
 
 function Form() {
-
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");
   const [startDate, setStartDate] = useState("");
@@ -25,7 +19,6 @@ function Form() {
   const [state, setState] = useState("Alabama");
   const [zipCode, setZipCode] = useState();
   const [department, setDepartment] = useState("Sales");
-  const [formValid, setFormValid] = useState(false);
 
   const [opened, { open, close }] = useDisclosure(false);
 
@@ -97,13 +90,10 @@ function Form() {
     { id: 50, name: "Wyoming" },
   ];
 
-  console.log("state", state);
   const dispatch = useDispatch();
 
   const onSubmit = (e) => {
     e.preventDefault();
-    console.log("submitted");
-    console.log('states', states)
 
     const newBirthDate = new Intl.DateTimeFormat("fr-FR", {
       year: "numeric",
@@ -129,7 +119,7 @@ function Form() {
       department: department,
     };
 
-    // do a validation check here
+    // validation check for empty fields
     if (
       firstName === "" ||
       lastName === "" ||
@@ -142,12 +132,9 @@ function Form() {
       department === ""
     ) {
       alert("Please fill in all fields");
-      setFormValid(false);
       return;
-
     } else {
-
-      setFormValid(true);
+      console.log("submitted");
       //open the modal
       open();
 
@@ -168,12 +155,30 @@ function Form() {
           department: department,
         })
       );
+
+      // //reset the form
+      resetForm();
     }
+   
   };
+
+   //reset the form function and empty the fields
+    const resetForm = () => {
+      document.getElementById("form-hrnet").reset(); //reset the form
+      setFirstName("");
+      setLastName("");
+      setBirthDate(null);
+      setStartDate(null);
+      setStreetAddress("");
+      setCity("");
+      setState("");
+      setZipCode("");
+      setDepartment("");
+    };
 
   return (
     <>
-      <form className="hrnet-form" onSubmit={onSubmit}>
+      <form id="form-hrnet" className="hrnet-form" onSubmit={onSubmit}>
         <input
           className="hrnet-form__input"
           type="text"
@@ -195,20 +200,22 @@ function Form() {
         />
 
         <DateInput
+          clearable
           valueFormat="DD/MM/YYYY" // format for input
           placeholder="Date of Birth"
           onChange={setBirthDate}
-          style={{ marginBottom: "15px", width:'95%'}}
+          style={{ marginBottom: "15px", width: "95%" }}
           maw={400}
           mx="auto"
           aria-label="Date of Birth"
         />
 
         <DateInput
+          clearable
           valueFormat="DD/MM/YYYY" // format for input
           placeholder="Start Date"
           onChange={setStartDate}
-          style={{ marginBottom: "15px", width:'95%'}}
+          style={{ marginBottom: "15px", width: "95%" }}
           maw={400}
           mx="auto"
           aria-label="Start Date"
@@ -238,7 +245,7 @@ function Form() {
           defaultValue={0}
           placeholder="Zip Code"
           onChange={setZipCode}
-          style={{ marginBottom: "15px", width:'95%', marginLeft:'0.5em'}}
+          style={{ marginBottom: "15px", width: "95%", marginLeft: "0.5em" }}
           aria-label="Zip Code"
         />
 
@@ -270,9 +277,10 @@ function Form() {
         onClose={close}
         title="Employee Created !"
         transitionProps={{ transition: "fade", duration: 200 }}
-      > 
-        If you want to see the employee details, please go to the Employee List page.
-        <Link to="/employee"/>
+      >
+        If you want to see the employee details, please go to the Employee List
+        page.
+        <Link to="/employee" />
       </Modal>
     </>
   );

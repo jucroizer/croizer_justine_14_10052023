@@ -1,81 +1,37 @@
-// import DataTable from "react-data-table-component";
-import { DataTable } from "datable-react";
+import DataTable from "datatable_react_nicolay";
 
 import * as employeeActions from "../store/storeSlice";
 import { useSelector } from "react-redux";
+import "datatable_react_nicolay/dist/cjs/styles/style.css";
 
 function CreateEmployees() {
   const selectEmployee = useSelector(employeeActions.selectEmployee);
 
-  const toAnArray = selectEmployee;
-
-  // convert toAnArray to an array of objects
-  const results = Object.keys(toAnArray).map(() => ({
-    firstName: toAnArray.firstName,
-    lastName: toAnArray.lastName,
-    birthDate: toAnArray.birthDate,
-    startDate: toAnArray.startDate,
-    streetAddress: toAnArray.streetAddress,
-    city: toAnArray.city,
-    zipCode: toAnArray.zipCode,
-    state: toAnArray.state,
-    department: toAnArray.department,
-  }));
-  console.log("results", results);
-
-  //delete all the duplicate objects in the array
-  const data = Array.from(new Set(results.map(JSON.stringify))).map(
-    JSON.parse
-  );
-  console.log("data", data);
-
-  // push data result into a new array
-  // const newData = [];
-  // data.forEach((item) => {
-  //   newData.push(item);
-  // });
-  // console.log("newData", newData);
-
+  const data = selectEmployee;
 
   const labels = [
-    { text: "First Name", value: "firstName" },
-    { text: "Last Name", value: "lastName" },
-    { text: "Birth Date", value: "birthDate"},
-    { text: "Start Date", value: "startDate" },
-    { text: "Street Address", value: "streetAddress" },
-    { text: "City", value: "city" },
-    { text: "ZipCode", value: "zipCode" },
-    { text: "State", value: "state" },
-    { text: "Department", value: "department" },
+    { label: "First Name", id: "firstName", type: "string" },
+    { label: "Last Name", id: "lastName", type: "string" },
+    { label: "Birth Date", id: "birthDate", type: "date" },
+    { label: "Start Date", id: "startDate", type: "date" },
+    { label: "Street Address", id: "streetAddress", type: "string" },
+    { label: "City", id: "city", type: "string" },
+    { label: "ZipCode", id: "zipCode", type: "string" },
+    { label: "State", id: "state", type: "string" },
+    { label: "Department", id: "department", type: "string" },
   ];
 
-  // const data = [
-  //   {
-  //     firstName: "Tyson",
-  //     lastName: "Doe",
-  //     startDate: "04/14/2021",
-  //     department: "Marketing",
-  //   },
-  //   {
-  //     firstName: "Anna",
-  //     lastName: "Alia",
-  //     startDate: "03/02/2020",
-  //     department: "Marketing",
-  //   },
-  // ];
-
   return (
-    <div style={{ color: "white" }}>
-      <h1>Current Employees</h1>
+    <div>
+      <h1 style={{color:"white"}}>Current Employees</h1>
 
-      <section>
+      <section style={{ width: "90%", margin:'0 auto' }}>
         <DataTable
-          labels={labels}
+          columns={labels}
           data={data}
           language={true}
-          firstBackground={"#038C3E"}
-          secondBackground={"#f9bc60"}
-          arrowColor={"#022601"}
+          pagination={true}
+          
         />
       </section>
     </div>
