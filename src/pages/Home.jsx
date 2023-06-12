@@ -1,17 +1,12 @@
 import React from "react";
 import Form from "../components/Form";
 import { Link } from "react-router-dom";
-
-// import background from "../assets/Company-bro 1.svg";
-
 import "../styles/Form.css";
 import "../styles/Home.css";
 
 function Home() {
-  // const localStore = localStorage.getItem("token");
-  // console.log(localStore);
   return (
-    <div>
+    <div className="container">
       <h1 className="page-title">HRNet</h1>
       <Link to="/employee" className="link">
         View Current Employees
