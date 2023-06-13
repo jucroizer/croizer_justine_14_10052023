@@ -11,20 +11,21 @@ function CreateEmployees() {
   const data = selectEmployee;
 
   const labels = [
-    { label: "First Name", id: "firstName", value: true, sortable: true },
-    { label: "Last Name", id: "lastName", value: true, sortable: true },
-    { label: "Birth Date", id: "birthDate", value: true, sortable: true },
-    { label: "Start Date", id: "startDate", value: true, sortable: true },
+    { label: "First Name", id: "firstName", value: true, sortable: true, type:"string" },
+    { label: "Last Name", id: "lastName", value: true, sortable: true, type:"string" },
+    { label: "Birth Date", id: "birthDate", value: true, sortable: true, type:"date" },
+    { label: "Start Date", id: "startDate", value: true, sortable: true, type:"date" },
     {
       label: "Street Address",
       id: "streetAddress",
       value: true,
       sortable: true,
+      type:"string"
     },
-    { label: "City", id: "city", value: true, sortable: true },
-    { label: "ZipCode", id: "zipCode", value: true, sortable: true },
-    { label: "State", id: "state", value: true, sortable: true },
-    { label: "Department", id: "department", value: true, sortable: true },
+    { label: "City", id: "city", value: true, sortable: true, type:"string" },
+    { label: "ZipCode", id: "zipCode", value: true, sortable: true, type:"string" },
+    { label: "State", id: "state", value: true, sortable: true, type:"string" },
+    { label: "Department", id: "department", value: true, sortable: true, type:"string" },
   ];
 
   return (
