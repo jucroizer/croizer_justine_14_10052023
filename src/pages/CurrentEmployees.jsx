@@ -30,13 +30,12 @@ function CreateEmployees() {
 
   return (
     <div className="datatable-container">
-      <h1 style={{ color: "white" }}>Current Employees</h1>
+      <h1>Current Employees</h1>
 
       <section
         style={{
           width: "90%",
           margin: "0 auto",
-          color: "white",
           backgroundColor: "transparent",
         }}
       >
