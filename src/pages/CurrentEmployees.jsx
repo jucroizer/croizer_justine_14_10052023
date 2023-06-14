@@ -2,6 +2,7 @@ import DataTable from "datatable_react_nicolay";
 import * as employeeActions from "../store/storeSlice";
 import { useSelector } from "react-redux";
 import "../styles/Employee.css";
+import { Link } from "react-router-dom";
 
 function CreateEmployees() {
   const selectEmployee = useSelector(employeeActions.selectEmployee);
@@ -268,6 +269,7 @@ function CreateEmployees() {
   return (
     <div className="container">
       <h1>Current Employees</h1>
+      <Link to="/" className="link">Home</Link>
 
       <section
         style={{
