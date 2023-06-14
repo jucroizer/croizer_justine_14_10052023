@@ -1,13 +1,3 @@
-.datatable-container{
-    height: 100vh;
-    padding-top: 3em;
-    /* background-color: rgba(171, 209, 198, 0.4); */
-    background-image: url("../assets/filigrane_table.svg");
-    background-repeat: no-repeat;
-    background-position: bottom right;
-    color: white;
-}
-
 .container-data-table{
     margin-top: 4em;
 }

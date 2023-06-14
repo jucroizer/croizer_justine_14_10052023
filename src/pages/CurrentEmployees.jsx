@@ -29,7 +29,7 @@ function CreateEmployees() {
   ];
 
   return (
-    <div className="datatable-container">
+    <div className="container">
       <h1>Current Employees</h1>
 
       <section

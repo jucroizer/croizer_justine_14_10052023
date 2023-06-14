@@ -160,114 +160,122 @@ function Form() {
       // //reset the form
       resetForm();
     }
-   
   };
 
-   //reset the form function and empty the fields
-    const resetForm = () => {
-      document.getElementById("form-hrnet").reset(); //reset the form
-      setFirstName("");
-      setLastName("");
-      setBirthDate(null);
-      setStartDate(null);
-      setStreetAddress("");
-      setCity("");
-      setState("");
-      setZipCode("");
-      setDepartment("");
-    };
+  //reset the form function and empty the fields
+  const resetForm = () => {
+    document.getElementById("form-hrnet").reset(); //reset the form
+    setFirstName("");
+    setLastName("");
+    setBirthDate(null);
+    setStartDate(null);
+    setStreetAddress("");
+    setCity("");
+    setState("");
+    setZipCode("");
+    setDepartment("");
+  };
 
   return (
     <>
       <form id="form-hrnet" className="hrnet-form" onSubmit={onSubmit}>
-        <input
-          className="hrnet-form__input"
-          type="text"
-          id="fname"
-          name="fname"
-          placeholder="First Name"
-          onChange={(e) => setFirstName(e.target.value)}
-          aria-label="First Name"
-        />
+        <div className="form-hrnet-container">
+          <div className="hrnet-form-employee">
+            <input
+              className="hrnet-form__input"
+              type="text"
+              id="fname"
+              name="fname"
+              placeholder="First Name"
+              onChange={(e) => setFirstName(e.target.value)}
+              aria-label="First Name"
+            />
 
-        <input
-          className="hrnet-form__input"
-          type="text"
-          id="lname"
-          name="lname"
-          placeholder="Last Name"
-          onChange={(e) => setLastName(e.target.value)}
-          aria-label="Last Name"
-        />
+            <input
+              className="hrnet-form__input"
+              type="text"
+              id="lname"
+              name="lname"
+              placeholder="Last Name"
+              onChange={(e) => setLastName(e.target.value)}
+              aria-label="Last Name"
+            />
 
-        <DateInput
-          clearable
-          valueFormat="DD/MM/YYYY" // format for input
-          placeholder="Date of Birth"
-          onChange={setBirthDate}
-          style={{ marginBottom: "15px", width: "95%" }}
-          maw={400}
-          mx="auto"
-          aria-label="Date of Birth"
-        />
+            <DateInput
+              clearable
+              valueFormat="DD/MM/YYYY" // format for input
+              placeholder="Date of Birth"
+              onChange={setBirthDate}
+              style={{ marginBottom: "15px", width: "95%" }}
+              maw={400}
+              mx="auto"
+              aria-label="Date of Birth"
+            />
 
-        <DateInput
-          clearable
-          valueFormat="DD/MM/YYYY" // format for input
-          placeholder="Start Date"
-          onChange={setStartDate}
-          style={{ marginBottom: "15px", width: "95%" }}
-          maw={400}
-          mx="auto"
-          aria-label="Start Date"
-        />
+            <DateInput
+              clearable
+              valueFormat="DD/MM/YYYY" // format for input
+              placeholder="Start Date"
+              onChange={setStartDate}
+              style={{ marginBottom: "15px", width: "95%" }}
+              maw={400}
+              mx="auto"
+              aria-label="Start Date"
+            />
 
-        <input
-          className="hrnet-form__input"
-          type="text"
-          id="street"
-          name="street"
-          placeholder="Street"
-          onChange={(e) => setStreetAddress(e.target.value)}
-          aria-label="Street"
-        />
+            <Dropdown
+              // className="hrnet-form__input"
+              result={(value) => {
+                setDepartment(value);
+              }}
+              options={departments}
+              aria-label="Department"
+            />
+          </div>
 
-        <input
-          className="hrnet-form__input"
-          type="text"
-          id="city"
-          name="city"
-          placeholder="City"
-          onChange={(e) => setCity(e.target.value)}
-          aria-label="City"
-        />
+          <div className="hrnet-form-details">
+            <input
+              className="hrnet-form__input"
+              type="text"
+              id="street"
+              name="street"
+              placeholder="Street"
+              onChange={(e) => setStreetAddress(e.target.value)}
+              aria-label="Street"
+            />
 
-        <NumberInput
-          defaultValue={0}
-          placeholder="Zip Code"
-          onChange={setZipCode}
-          style={{ marginBottom: "15px", width: "95%", marginLeft: "0.5em" }}
-          aria-label="Zip Code"
-        />
+            <input
+              className="hrnet-form__input"
+              type="text"
+              id="city"
+              name="city"
+              placeholder="City"
+              onChange={(e) => setCity(e.target.value)}
+              aria-label="City"
+            />
 
-        <Dropdown
-          // className="hrnet-form__input"
-          result={(value) => {
-            setState(value);
-          }}
-          options={states}
-          aria-label="State"
-        />
+            <NumberInput
+              defaultValue={0}
+              placeholder="Zip Code"
+              onChange={setZipCode}
+              style={{
+                marginBottom: "15px",
+                width: "95%",
+                marginLeft: "0.5em",
+              }}
+              aria-label="Zip Code"
+            />
 
-        <Dropdown
-          // className="hrnet-form__input"
-          result={(value) => {
-            setDepartment(value);
-          }}
-          options={departments}
-          aria-label="Department"
-        />
-
+            <Dropdown
+              // className="hrnet-form__input"
+              result={(value) => {
+                setState(value);
+              }}
+              options={states}
+              aria-label="State"
+            />
+          </div>
+        </div>
         <button type="submit" className="submit-button" aria-label="Submit">
           Save
         </button>

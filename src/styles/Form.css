@@ -1,3 +1,9 @@
+.form-hrnet-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin: 3em auto 1em auto;
+}
+
 .hrnet-form-input{
     padding: 0.3em 0;
 }
@@ -11,14 +17,15 @@
 }
 
 .submit-button{
-    background-color: #e16162;
+    background: linear-gradient(92.84deg, rgba(94, 110, 33, 1) 0%, #13371D 100%);
+    /* background-color: #5E6E21; */
     box-shadow: 2px 4px 5px 2px rgba(0, 0, 0, 0.25);
     color: #fff;
     border: none;
     border-radius: 10px;
-    padding: 0.5em 0.5em;
+    padding: 0.7em 0.5em;
     margin-bottom: 1em;
-    width: 50%;
+    width: 25%;
     font-size: 1.2em;
     font-weight: 600;
     cursor: pointer;
