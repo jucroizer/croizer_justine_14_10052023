@@ -1,0 +1,22 @@
+.container-error{
+    height: 100vh;
+    background-image: url("../assets/error.webp");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 50%;
+    color: white;
+}
+
+.link-error{
+    color: var(--textcolor);
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 1.2em;
+    position: relative;
+    top: 85%;
+}
+
+.link-error:hover{
+    color: var(--textcolor);
+    text-decoration: underline;
+}
