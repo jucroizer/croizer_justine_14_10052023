@@ -118,6 +118,7 @@ function Form() {
       zipCode: zipCode,
       department: department,
     };
+    console.log(employee);
 
     // validation check for empty fields
     if (
