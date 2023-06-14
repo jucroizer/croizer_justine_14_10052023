@@ -4,6 +4,7 @@ import CurrentEmployees from "../pages/CurrentEmployees";
 import Error from "../pages/Error";
 
 function RouteManager(){
+
     return (
         <Router>
           <Routes>

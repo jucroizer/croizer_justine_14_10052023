@@ -8,8 +8,8 @@ import Store from "./store/store";
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <Provider store={Store}>
-    <React.StrictMode>
-      <RouteManager />
-    </React.StrictMode>
+      <React.StrictMode>
+        <RouteManager />
+      </React.StrictMode>
   </Provider>
 );

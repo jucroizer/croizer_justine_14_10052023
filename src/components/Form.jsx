@@ -110,19 +110,6 @@ function Form() {
     //replace the state name with the abbreviation
     const abvState = states.find((s) => s.name === state).abbreviation;
 
-    const employee = {
-      firstName: firstName,
-      lastName: lastName,
-      birthDate: newBirthDate,
-      startDate: newStartDate,
-      streetAddress: streetAddress,
-      city: city,
-      state: abvState,
-      zipCode: zipCode,
-      department: department,
-    };
-    console.log(employee);
-
     // validation check for empty fields
     if (
       firstName === "" ||
@@ -141,9 +128,6 @@ function Form() {
       //if all fields are filled in, then open the modal
       open();
 
-      //set the employee to local storage
-      localStorage.setItem("employee", JSON.stringify(employee));
-
       //set the employee to redux store
       dispatch(
         setEmployee({
@@ -159,7 +143,7 @@ function Form() {
         })
       );
 
-      // //reset the form
+      // reset the form
       resetForm();
     }
   };
@@ -179,7 +163,7 @@ function Form() {
   };
 
   return (
-    <>
+    <div>
       <form id="form-hrnet" className="hrnet-form" onSubmit={onSubmit}>
         <div className="form-hrnet-container">
           <div className="hrnet-form-employee">
@@ -293,7 +277,7 @@ function Form() {
         page.
         <Link to="/employee" />
       </Modal>
-    </>
+    </div>
   );
 }
 
