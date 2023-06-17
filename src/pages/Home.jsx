@@ -4,6 +4,12 @@ import { Link } from "react-router-dom";
 import "../styles/Form.css";
 import "../styles/Home.css";
 
+/** Home function
+ *
+ * retrieve form
+ *
+ * @returns the Homepage with a form
+*/
 function Home() {
   return (
     <div className="container">

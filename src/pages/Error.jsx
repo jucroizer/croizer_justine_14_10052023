@@ -1,6 +1,12 @@
 import { Link } from "react-router-dom";
 import "../styles/Error.css";
 
+/** Error function
+ *
+ * retrieve error with a link
+ *
+ * @returns the Error page
+*/
 function Error(){
     return (
         <div className="container-error">

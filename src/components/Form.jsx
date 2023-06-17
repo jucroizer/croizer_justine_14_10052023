@@ -9,6 +9,10 @@ import { useDispatch } from "react-redux";
 import "../styles/Form.css";
 import { Link } from "react-router-dom";
 
+/** Form function
+ *
+ * @returns the component form with validation function and dispatch info to the Redux
+*/
 function Form() {
   const [firstName, setFirstName] = useState("");
   const [lastName, setLastName] = useState("");

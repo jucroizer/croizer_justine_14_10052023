@@ -4,12 +4,16 @@ import { useSelector } from "react-redux";
 import "../styles/Employee.css";
 import { Link } from "react-router-dom";
 
-function CreateEmployees() {
+/** CurrentEmployee function
+ *
+ * retrieve data from the state and display it in a table
+ *
+ * @returns the Current EMployee page with all the data needed for the different displays
+*/
+function CurrentEmployees() {
   const selectEmployee = useSelector(employeeActions.selectEmployee);
 
   const data = [...selectEmployee];
-
-
 
   const labels = [
     {
@@ -71,244 +75,6 @@ function CreateEmployees() {
     },
   ];
 
-  // data test
-  // const dataPersist = [
-  //   {
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "Jane",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NJ",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "Jane",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2023",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "120 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "Jane",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "Jane",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "Jane",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2023",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "120 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "Jane",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "Jane",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "Jane",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2023",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "120 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "Jane",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "Washington",
-  //     state: "NY",
-  //     zipCode: "10001",
-
-  //     department: "IT",
-  //   },
-  //   {
-  //     firstName: "John",
-  //     lastName: "Doe",
-  //     birthDate: "01/01/1990",
-  //     startDate: "01/01/2020",
-  //     streetAddress: "123 Main St",
-  //     city: "New York",
-  //     state: "NY",
-  //     zipCode: "10001",
-  //     department: "IT",
-  //   }
-  // ];
-
   return (
     <div className="container">
       <h1>Current Employees</h1>
@@ -328,11 +94,10 @@ function CreateEmployees() {
           data={data}
           language={true}
           pagination={true}
-          arialabels={true} //for screen readers
         />
       </section>
     </div>
   );
 }
 
-export default CreateEmployees;
+export default CurrentEmployees;
