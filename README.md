@@ -5,33 +5,33 @@ This project is the final project of the Openclassrooms Front-End Developer path
 
 Application performance control was done with LightHouse.
 
-You can find the jQuery project ![here](https://github.com/jucroizer/P14_Front-end)
-You can find the publish plugin ![here](https://www.npmjs.com/package/dropdown-menu-input-react-1) and the source code ![here](https://github.com/jucroizer/dropdown-menu-input-react)
+You can find the jQuery project [here](https://github.com/jucroizer/P14_Front-end)
+You can find the publish plugin [here](https://www.npmjs.com/package/dropdown-menu-input-react-1) and the source code [here](https://github.com/jucroizer/dropdown-menu-input-react)
 
 ![HRNet](HRNet.png)
-## Getting Started
 
+## Installation
 After cloning this repo, you need to run :
-
-### `npm install`
-
+```bash
+npm install
+```
 This command will help you to install all dependecies you need in this project.
-
+    
 Then you need to run :
-
-### `npm start`
-
+```bash
+npm start
+```
 and open the browser on the deployed port.
 
 ## Technologies used for this project
 
 This project use :
-
-JavaScript
-
-React
-
-HTML/CSS
+- React
+- Redux
+- React-Router
+- React-Redux
+- JavaScript
+- HTML/CSS
 
 ### Prerequisites
 
